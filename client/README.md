@@ -1,3 +1,7 @@
+## Current progress
+
+https://youtu.be/BDCT6TYLYdI?t=3423
+
 ## Getting Started
 
 Create a project using this example:
