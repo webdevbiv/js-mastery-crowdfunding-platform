@@ -1,6 +1,6 @@
 ## Current progress
 
-https://youtu.be/BDCT6TYLYdI?t=3423
+https://youtu.be/BDCT6TYLYdI?t=4711
 
 ## Getting Started
 
