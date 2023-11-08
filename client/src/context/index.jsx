@@ -10,11 +10,11 @@ import {
 import { ethers } from "ethers";
 
 const StateContext = createContext();
+const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS;
 
 export const StateContextProvider = ({ children }) => {
-  const { contract } = useContract(
-    "0xb415380273fa12CcAdB96E76B3E6FfC5b94bcd61"
-  );
+  console.log(contractAddress);
+  const { contract } = useContract(contractAddress);
 
   const { mutateAsync: createCampaign } = useContractWrite(
     contract,
@@ -25,6 +25,7 @@ export const StateContextProvider = ({ children }) => {
   const connect = useMetamask();
 
   const publishCampaign = async (form) => {
+    console.log(form);
     try {
       const data = await createCampaign([
         address,

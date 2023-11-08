@@ -6,10 +6,14 @@ import { StateContextProvider } from "./context";
 import App from "./App";
 import "./index.css";
 
+const clientId = import.meta.env.VITE_CLIENT_ID;
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <ThirdwebProvider activeChain='goerli'>
+  <ThirdwebProvider
+    activeChain='goerli'
+    clientId={clientId}
+  >
     <Router>
       <StateContextProvider>
         <App />
