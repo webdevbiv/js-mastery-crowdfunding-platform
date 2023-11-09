@@ -28,18 +28,19 @@ const CreateCampaign = () => {
     e.preventDefault();
     checkIfImage(form.image, async (exists) => {
       if (exists) {
-        console.log("form", form);
         setIsLoading(true);
-        await createCampaign({
+        const newForm = {
           ...form,
+          deadline: new Date(form.deadline).getTime() / 1000,
           target: ethers.utils.parseUnits(form.target, 18),
-        });
+        };
+        await createCampaign(newForm);
         setIsLoading(false);
 
         // navigate("/");
       } else {
         alert("Provide valid image URL");
-        setForm({ ...form, image: "" });
+        setForm({ ...newForm, image: "" });
       }
     });
   };

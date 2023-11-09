@@ -7,13 +7,10 @@ import {
   useContractWrite,
 } from "@thirdweb-dev/react";
 
-import { ethers } from "ethers";
-
 const StateContext = createContext();
 const contractAddress = import.meta.env.VITE_CONTRACT_ADDRESS;
 
 export const StateContextProvider = ({ children }) => {
-  console.log(contractAddress);
   const { contract } = useContract(contractAddress);
 
   const { mutateAsync: createCampaign } = useContractWrite(
@@ -25,16 +22,18 @@ export const StateContextProvider = ({ children }) => {
   const connect = useMetamask();
 
   const publishCampaign = async (form) => {
-    console.log(form);
-    try {
-      const data = await createCampaign([
+    const newCampaign = {
+      args: [
         address,
         form.title,
         form.description,
         form.target,
-        new Date(form.deadline).getTime(),
+        form.deadline,
         form.image,
-      ]);
+      ],
+    };
+    try {
+      const data = await createCampaign(newCampaign);
 
       console.log("contract call success", data);
     } catch (error) {
