@@ -55,11 +55,6 @@ function Sidebar() {
             />
           ))}
         </div>
-        <Icon
-          styles={`bg-[#1c1c24] shadow-secondary`}
-          name='sun'
-          imgUrl={sun}
-        />
       </div>
     </div>
   );
