@@ -67,7 +67,6 @@ export const StateContextProvider = ({ children }) => {
     const filteredCampaigns = allCampaigns.filter(
       (campaign) => campaign.owner === address
     );
-    console.log(filteredCampaigns);
     return filteredCampaigns;
   };
 
