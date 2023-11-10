@@ -32,6 +32,7 @@ export const StateContextProvider = ({ children }) => {
         form.image,
       ],
     };
+
     try {
       const data = await createCampaign(newCampaign);
 

@@ -34,10 +34,11 @@ const CreateCampaign = () => {
           deadline: new Date(form.deadline).getTime() / 1000,
           target: ethers.utils.parseUnits(form.target, 18),
         };
+
         await createCampaign(newForm);
         setIsLoading(false);
 
-        // navigate("/");
+        navigate("/");
       } else {
         alert("Provide valid image URL");
         setForm({ ...newForm, image: "" });
